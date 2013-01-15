@@ -13,7 +13,7 @@ class WhatsProt
     protected $_whatsAppRealm = "s.whatsapp.net";
     protected $_whatsAppDigest = "xmpp/s.whatsapp.net";
     protected $_device = "iPhone";
-    protected $_whatsAppVer = "2.8.4";
+    protected $_whatsAppVer = "2.8.7";
     protected $_port = 5222;
     protected $_timeout = array("sec" => 2, "usec" => 0);
     protected $_incomplete_message = "";
@@ -69,14 +69,7 @@ class WhatsProt
     
     public function encryptPassword()
     {
-    	if(stripos($this->_imei, ":") !== false){
-            $this->_imei = strtoupper($this->_imei);
-            return md5($this->_imei.$this->_imei);
-    	}
-        else
-        {
-            return md5(strrev($this->_imei));
-        }
+    	return base64_decode($this->_imei);
     }
 
     protected function authenticate()
