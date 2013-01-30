@@ -416,8 +416,7 @@ class WhatsProt
     
     public function RequestLastSeen($to)
     {
-      $msgid = time().'-'.$this->_msgCounter;
-
+      $msgid = time().'-'.$this->_msgCounter++;
 
     	$whatsAppServer = $this->_whatsAppServer;
 
